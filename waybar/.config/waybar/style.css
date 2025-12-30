@@ -1,0 +1,135 @@
+/* Greenvox Waybar Theme */
+* {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #1C2B28;
+    color: #E8F5F1;
+    border-bottom: 2px solid #4CAF95;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 10px;
+    color: #B8D4CC;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: #2A3F3A;
+    color: #7DD3C0;
+}
+
+#workspaces button.focused {
+    background: #4CAF95;
+    color: #1C2B28;
+    border-bottom: 2px solid #7DD3C0;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background: #FF6B6B;
+    color: #1C2B28;
+}
+
+/* Módulos principales */
+#clock {
+    padding: 0 15px;
+    background: #2A3F3A;
+    color: #7DD3C0;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+#cpu, #memory, #battery, #pulseaudio, #network {
+    padding: 0 12px;
+    margin: 0 2px;
+    background: #2A3F3A;
+}
+
+#cpu {
+    color: #B8E6D5;
+}
+
+#memory {
+    color: #7DD3C0;
+}
+
+#battery {
+    color: #4CAF95;
+}
+
+#battery.warning {
+    color: #FFD93D;
+}
+
+#battery.critical {
+    color: #FF6B6B;
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
+
+#pulseaudio {
+    color: #7DD3C0;
+}
+
+#pulseaudio.muted {
+    color: #FF6B6B;
+}
+
+#network {
+    color: #4CAF95;
+}
+
+#network.disconnected {
+    color: #FF6B6B;
+}
+
+/* SwayNC - Centro de notificaciones */
+#custom-swaync {
+    padding: 0 12px;
+    background: #2A3F3A;
+    color: #7DD3C0;
+    font-size: 14px;
+}
+
+#custom-swaync:hover {
+    background: #3A524C;
+    color: #4CAF95;
+}
+
+/* Cuando hay notificaciones sin leer */
+#custom-swaync.notification {
+    color: #FFD93D;
+}
+
+/* Cuando está en modo No Molestar */
+#custom-swaync.dnd-notification,
+#custom-swaync.dnd-none {
+    color: #FF6B6B;
+}
+
+/* Notificaciones custom (legacy - puedes eliminarlo) */
+#custom-notification {
+    padding: 0 12px;
+    background: #2A3F3A;
+    color: #7DD3C0;
+}
+
+/* Mode indicator */
+#mode {
+    background: #4CAF95;
+    color: #1C2B28;
+    padding: 0 15px;
+    font-weight: bold;
+}

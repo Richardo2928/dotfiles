@@ -1,0 +1,272 @@
+# ============================================
+# RICE MINIMALISTA SWAY - Productividad Pura
+# ============================================
+
+# ============================================
+# VARIABLES
+# ============================================
+
+# Tecla modificadora (Mod4 = Super/Windows)
+set $mod Mod4
+
+# Aplicaciones por defecto
+set $term foot
+set $menu fuzzel
+set $browser firefox
+
+# GTK Themes
+set $gtk_theme oomox-Greenbox_Oomox
+set $gtk_icons_theme oomox-Greenbox
+
+# Cursor Theme
+set $cursor_theme oreo-teal-cursors
+set $cursor_size 32
+
+# Font
+set $font JetBrainsMono Nerd Font
+set $font_size 10
+
+# ============================================
+# COLORES GREENBOX
+# ============================================
+
+set $base00 #282828
+set $base01 #504945
+set $base02 #504945
+set $base03 #89816d
+set $base04 #a89984
+set $base05 #ebdbb2
+set $base06 #ebdbb2
+set $base07 #fbf1c7
+set $base08 #fb4934
+set $base09 #D8F8B0
+set $base0A #fabd2f
+set $base0B #A4ECA8
+set $base0C #0FA17A
+set $base0D #83a598
+set $base0E #d3869b
+set $base0F #d58c5d
+
+# ============================================
+# APARIENCIA
+# ============================================
+
+# Gaps (espacios entre ventanas) - minimalistas
+gaps inner 8
+gaps outer 4
+
+# Bordes delgados
+default_border pixel 2
+default_floating_border pixel 2
+
+# Configuración de ventanas
+# class                 border   bground  text     indicator child_border
+client.focused          $base0C  $base0C  $base00  $base0B   $base0C
+client.focused_inactive $base01  $base01  $base05  $base00   $base01
+client.unfocused        $base00  $base00  $base05  $base00   $base01
+client.urgent           $base08  $base08  $base07  $base08   $base08
+client.placeholder      $base00  $base00  $base05  $base00   $base00
+client.background       $base00
+
+# Fuente
+font pango:$font $font_size
+
+# ============================================
+# ICONOS Y CURSORES
+# ============================================
+
+# Tema de cursor
+seat seat0 xcursor_theme $cursor_theme 32
+
+# ============================================
+# TECLAS BÁSICAS
+# ============================================
+
+# Terminal
+bindsym $mod+Return exec $term
+
+# Launcher
+bindsym $mod+d exec $menu
+
+# Navegador
+bindsym $mod+b exec $browser
+
+# Abrir/cerrar centro de notificaciones
+bindsym $mod+n exec swaync-client -t -sw
+
+# Cerrar última notificación
+bindsym $mod+Shift+n exec swaync-client -C
+
+# Cerrar ventana
+bindsym $mod+Shift+q kill
+
+# Recargar configuración
+bindsym $mod+Shift+r reload
+
+# Salir de Sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Salir de Sway?' -B 'Sí' 'swaymsg exit'
+
+# ============================================
+# NAVEGACIÓN
+# ============================================
+
+# Mover foco (vim keys)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover ventanas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# ============================================
+# LAYOUTS
+# ============================================
+
+# Split horizontal/vertical
+bindsym $mod+g split h
+bindsym $mod+v split v
+
+# Cambiar layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Floating toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# ============================================
+# WORKSPACES
+# ============================================
+
+# Definir workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# Cambiar a workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# Mover ventana a workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+# ============================================
+# REDIMENSIONAR
+# ============================================
+
+mode "resize" {
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ============================================
+# MULTIMEDIA
+# ============================================
+
+# Volumen
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Brillo
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Screenshots
+bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+# ============================================
+# AUTOSTART
+# ============================================
+
+# Barra de estado
+exec waybar
+
+# Notificaciones
+exec swaync
+
+# Network Manager
+exec nm-applet --indicator
+
+# Sway Wallpaper
+exec swaybg -i ~/Pictures/Wallpaper/debian_wallpaper.jpg -m fill
+
+# ============================================
+# OPTIMIZACIONES
+# ============================================
+
+# Desactivar animaciones (máximo rendimiento)
+#seat seat0 xcursor_theme default 16
+
+# Output (monitor) - ajusta según tu pantalla
+# output * bg $bg solid_color
+output * scale 1
+
+# Idle (suspender tras 10 min de inactividad)
+exec swayidle -w \
+    timeout 600 'swaylock -f -c 282828' \
+    timeout 900 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
+# ============================================
+# VARIABLES DE ENTORNO
+# ============================================
+
+# # Tema GTK
+# exec_always {
+#     gsettings set org.gnome.desktop.interface gtk-theme 'oomox-Greenbox_Oomox'
+#     gsettings set org.gnome.desktop.interface icon-theme 'oomox-Greenbox'
+#     gsettings set org.gnome.desktop.interface cursor-theme 'oreo-teal-cursors'
+#     gsettings set org.gnome.desktop.interface cursor-size 32
+#     gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font 10'
+# }
+# # Variables para apps que no usan gsettings
+# set $gnome-schema org.gnome.desktop.interface
+
+# exec_always {
+#     gsettings set $gnome-schema gtk-theme 'oomox-Greenbox_Oomox'
+#     gsettings set $gnome-schema icon-theme 'oomox-Greenbox'
+#     gsettings set $gnome-schema cursor-theme 'oreo-teal-cursors'
+# }
+
+# Tema GTK
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
+    gsettings set org.gnome.desktop.interface icon-theme $gtk_icons_theme
+    gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
+    gsettings set org.gnome.desktop.interface cursor-size $cursor_size
+    gsettings set org.gnome.desktop.interface font-name '$font $font_size'
+}
+
+# Variables para apps que no usan gsettings
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme $gtk_theme
+    gsettings set $gnome-schema icon-theme $gtk_icons_theme
+    gsettings set $gnome-schema cursor-theme $cursor_theme
+}

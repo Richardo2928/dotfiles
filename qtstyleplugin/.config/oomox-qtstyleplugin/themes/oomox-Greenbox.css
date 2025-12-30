@@ -1,0 +1,91 @@
+@define-color base_color #32302f;
+@define-color text_color #2d303d;
+@define-color bg_color #282828;
+@define-color fg_color #ebdbb2;
+@define-color selected_bg_color #49CA94;
+@define-color selected_fg_color #282828;
+@define-color selected_borders_color rgba(73, 202, 148, 0.7);
+@define-color borders_color rgba(235, 219, 178, 0.80);
+@define-color alt_borders_color rgba(235, 219, 178, 0.89);
+@define-color borders_edge rgba(235, 219, 178, 0.50);
+@define-color link_color #458588;
+@define-color link_visited_color #b16286;
+@define-color top_hilight rgba(235, 219, 178, 0.50);
+@define-color dark_fill rgba(235, 219, 178, 0.70);
+@define-color headerbar_bg_color #e9e7e1;
+@define-color menu_color #e9e7e1;
+@define-color menu_selected_color #49CA94;
+@define-color scrollbar_bg_color rgba(50, 48, 47, 0.7);
+@define-color scrollbar_slider_color rgba(45, 48, 61, 0.7);
+@define-color scrollbar_slider_hover_color rgba(45, 48, 61, 0.89);
+@define-color scrollbar_slider_active_color #49CA94;
+@define-color warning_color #D8F8B0;
+@define-color error_color #fb4934;
+@define-color success_color #A4ECA8;
+@define-color destructive_color #fb4934;
+@define-color osd_fg_color #202126;
+@define-color osd_text_color #202126;
+@define-color osd_bg_color rgba(233, 231, 225, 0.7);
+@define-color osd_insensitive_bg_color rgba(233, 231, 225, 0.5);
+@define-color osd_insensitive_fg_color #202126;
+@define-color osd_borders_color rgba(32, 33, 38, 0.7);
+@define-color sidebar_bg_color #32302f;
+@define-color tooltip_borders_color rgba(32, 33, 38, 0.1);
+@define-color shadow_color rgba(0, 0, 0, 0.1);
+@define-color drop_target_color #2ec27e;
+@define-color insensitive_fg_color rgba(235, 219, 178, 0.50);
+@define-color insensitive_bg_color rgba(40, 40, 40, 0.50);
+@define-color insensitive_borders_color rgba(235, 219, 178, 0.70);
+@define-color backdrop_base_color rgba(50, 48, 47, 0.89);
+@define-color backdrop_text_color rgba(45, 48, 61, 0.89);
+@define-color backdrop_bg_color rgba(40, 40, 40, 0.89);
+@define-color backdrop_fg_color rgba(235, 219, 178, 0.89);
+@define-color window_bg_color #282828;
+@define-color window_fg_color #ebdbb2;
+@define-color backdrop_insensitive_color #d4cfca;
+@define-color backdrop_selected_fg_color #fcfcfc;
+@define-color backdrop_borders_color #d5d0cc;
+@define-color backdrop_dark_fill #eae8e6;
+@define-color suggested_bg_color #49CA94;
+@define-color suggested_border_color rgba(40, 40, 40, 0.5);
+@define-color progress_bg_color #49CA94;
+@define-color progress_border_color rgba(45, 48, 61, 0.89);
+@define-color checkradio_bg_color #32302f;
+@define-color checkradio_fg_color #0FA17A;
+@define-color checkradio_borders_color rgba(45, 48, 61, 0.89);
+@define-color switch_bg_color #49CA94;
+@define-color switch_borders_color rgba(45, 48, 61, 0.80);
+@define-color focus_border_color rgba(73, 202, 148, 0.5);
+@define-color alt_focus_border_color rgba(40, 40, 40, 0.8);
+@define-color dim_label_opacity 0.55;
+
+/*button { color: #202126; outline-color: rgba(53, 132, 228, 0.5); border-color: #cdc7c2; background-image: linear-gradient(to top, #3c3836 2px, #3c3836); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }*/
+/*button:hover { color: #202126; border-color: #cdc7c2; background-image: linear-gradient(to top, rgba(#, #, #, 0.89), rgba(#, #, #, 0.89) 1px); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.32); }*/
+
+button { color: #202126; outline-color: #49CA94; border-color: rgba(32, 33, 38, 0.38); background-image: image(#3c3836); box-shadow: none; text-shadow: none; }
+button:hover { color: #202126; border-color: rgba(32, 33, 38, 0.46); background-image: image(rgba(60, 56, 54, 0.77)); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.32); }
+
+button:checked { color: #282828; border-color: rgba(32, 33, 38, 0.38); background-image: image(#49CA94); box-shadow: none; }
+button:checked:hover { color: #282828; border-color: rgba(32, 33, 38, 0.46); background-image: image(rgba(73, 202, 148, 0.77)); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.32); }
+button:checked:active { color: #282828; border-color: rgba(32, 33, 38, 0.38); background-image: image(#49CA94); box-shadow: none; }
+
+button:backdrop { color: #202126; border-color: rgba(32, 33, 38, 0.32); background-image: image(rgba(60, 56, 54, 0.89)); box-shadow: none; }
+button:backdrop:active { color: #202126; border-color: rgba(32, 33, 38, 0.32); background-image: image(rgba(60, 56, 54, 0.89)); box-shadow: none; }
+button:backdrop:insensitive { color: rgba(32, 33, 38, 0.70); border-color: rgba(32, 33, 38, 0.22); background-image: image(rgba(60, 56, 54, 0.40)); box-shadow: none; }
+button:backdrop:insensitive:active { color: rgba(32, 33, 38, 0.89); border-color: rgba(32, 33, 38, 0.22); background-image: image(rgba(60, 56, 54, 0.49)); box-shadow: none; }
+
+button:disabled { color: rgba(32, 33, 38, 0.80); border-color: rgba(32, 33, 38, 0.22); background-image: image(rgba(60, 56, 54, 0.50)); }
+button:disabled:active { color: #282828; border-color: rgba(32, 33, 38, 0.22); background-image: image(rgba(73, 202, 148, 0.50)); box-shadow: none; }
+
+
+checkradio { background-clip: padding-box; background-image: image(#32302f); border-color: rgba(45, 48, 61, 0.80); box-shadow: none; color: #0FA17A; }
+checkradio:hover { background-image: image(rgba(15, 161, 122, 0.22)); }
+checkradio:active { box-shadow: inset 0 1px rgba(0, 0, 0, 0.2); background-image: image(#282828); }
+checkradio:disabled { box-shadow: none; color: rgba(50, 48, 47, 0.50); }
+
+checkradio:checked { background-clip: border-box; background-image: image(#0FA17A); border-color: rgba(45, 48, 61, 0.80); box-shadow: none; color: #282828; }
+checkradio:checked:hover { background-image: image(rgba(15, 161, 122, 0.89)); }
+checkradio:checked:active { box-shadow: inset 0 1px rgba(0, 0, 0, 0.2); background-image: image(#49CA94); }
+checkradio:checked:disabled { box-shadow: none; color: rgba(73, 202, 148, 0.7); }
+
+/* vim: set ft=css:*/

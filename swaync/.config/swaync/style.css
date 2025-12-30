@@ -1,0 +1,245 @@
+/* ===================================
+   SwayNC Theme - Greenvox
+   Adaptado para Debian 13
+   =================================== */
+
+/* Colores Greenvox */
+@define-color cc-bg rgba(28, 43, 40, 0.95);
+@define-color noti-bg rgba(42, 63, 58, 0.95);
+@define-color noti-bg-hover rgba(58, 82, 76, 1);
+@define-color noti-bg-focus rgba(42, 63, 58, 0.8);
+@define-color noti-border-color rgba(76, 211, 192, 0.6);
+@define-color noti-text-color rgba(232, 245, 241, 1);
+@define-color noti-secondary-text rgba(184, 212, 204, 1);
+@define-color accent-color rgba(76, 175, 149, 1);
+@define-color bg-selected rgba(76, 175, 149, 1);
+@define-color critical-color rgba(255, 107, 107, 1);
+@define-color warning-color rgba(255, 217, 61, 1);
+@define-color noti-close-bg rgba(255, 255, 255, 0.1);
+@define-color noti-close-bg-hover rgba(255, 107, 107, 0.8);
+
+* {
+  font-family: "DejaVu Sans", sans-serif;
+  font-size: 13px;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: @noti-bg-focus;
+}
+
+.notification {
+  border-radius: 8px;
+  margin: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  background: @noti-bg;
+  border: 2px solid @noti-border-color;
+}
+
+/* Prioridades de notificación */
+.low {
+  border-left: 4px solid @accent-color;
+}
+
+.normal {
+  border-left: 4px solid @bg-selected;
+}
+
+.critical {
+  border-left: 4px solid @critical-color;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.notification-content {
+  background: transparent;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Botón de cerrar */
+.close-button {
+  background: @noti-close-bg;
+  color: @noti-text-color;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 50%;
+  margin-top: 8px;
+  margin-right: 12px;
+  box-shadow: none;
+  border: none;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.close-button:hover {
+  background: @noti-close-bg-hover;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Acciones de notificación */
+.notification-default-action,
+.notification-action {
+  padding: 6px;
+  margin: 0;
+  box-shadow: none;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  color: @noti-text-color;
+  border-radius: 0;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @noti-bg-hover;
+}
+
+.notification-default-action {
+  border-radius: 8px;
+}
+
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.notification-action {
+  border-top: none;
+  border-right: none;
+}
+
+.notification-action:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 6px;
+  border-right: 1px solid @noti-border-color;
+}
+
+/* Imágenes */
+.body-image {
+  margin-top: 6px;
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+/* Texto */
+.summary {
+  color: @noti-text-color;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.time {
+  color: @noti-secondary-text;
+  text-shadow: none;
+  margin-right: 12px;
+  font-size: 11px;
+}
+
+.body {
+  color: @noti-secondary-text;
+  text-shadow: none;
+}
+
+/* Control Center */
+.control-center {
+  background: @cc-bg;
+  border-radius: 8px;
+  border: 2px solid @noti-border-color;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+/* Título del panel */
+.top-action-title {
+  color: @noti-text-color;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Botón "Limpiar todo" */
+.control-center-clear-all {
+  color: @noti-text-color;
+  background: @noti-bg;
+  border: 2px solid @noti-border-color;
+  border-radius: 6px;
+  box-shadow: none;
+  margin: 8px;
+}
+
+.control-center-clear-all:hover {
+  background: @noti-bg-hover;
+}
+
+/* Toggle "No molestar" */
+.control-center-dnd {
+  border-radius: 6px;
+  background: @noti-bg;
+  border: 2px solid @noti-border-color;
+  margin: 8px;
+}
+
+.control-center-dnd:checked {
+  background: @bg-selected;
+  border-color: @bg-selected;
+}
+
+.control-center-dnd slider {
+  background: @noti-text-color;
+  border-radius: 12px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.control-center-dnd slider:hover {
+  background: @accent-color;
+}
+
+/* Notificaciones flotantes */
+.floating-notifications {
+  background: transparent;
+}
+
+/* Fondo oscuro detrás del control center */
+.blank-window {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Widget de notificaciones vacío */
+.widget-title {
+  color: @noti-text-color;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 8px;
+}
+
+.widget-dnd {
+  margin: 8px;
+}
+
+.widget-dnd > switch {
+  background: @noti-bg;
+  border: 2px solid @noti-border-color;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+  background: @bg-selected;
+}
+
+.widget-dnd > switch slider {
+  background: @noti-text-color;
+  border-radius: 10px;
+}
