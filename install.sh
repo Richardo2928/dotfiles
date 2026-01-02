@@ -107,17 +107,17 @@ fi'
 }
 
 # ==========================================================
-# [1/4] UPDATING
+# [1/5] UPDATING
 # ==========================================================
 
-echo -e "${YELLOW}[1/4] ${GREEN}=== Actualizando sistema ===${NC}"
+echo -e "${YELLOW}[1/5] ${GREEN}=== Actualizando sistema ===${NC}"
 sudo apt update && sudo apt upgrade -y
 
 # ==========================================================
-# [2/4] INSTALLING PACKAGES
+# [2/5] INSTALLING PACKAGES
 # ==========================================================
 
-echo -e "${YELLOW}[2/4] ${GREEN}=== Instalando paquetes necesarios ===${NC}"
+echo -e "${YELLOW}[2/5] ${GREEN}=== Instalando paquetes necesarios ===${NC}"
 packages=(
     # Sistema y utilidades
     stow
@@ -151,10 +151,10 @@ sudo apt install -y "${packages[@]}"
 echo -e "${GREEN}✓ Paquetes instalados${NC}"
 
 # ==========================================================
-# [3/4] INSTALLING RICE
+# [3/5] INSTALLING RICE
 # ==========================================================
 
-echo -e "${YELLOW}[3/4] ${GREEN}=== Configuración con Stow ===${NC}"
+echo -e "${YELLOW}[3/5] ${GREEN}=== Configuración con Stow ===${NC}"
 
 # Verificar si estamos en un repositorio git
 if [ ! -d ".git" ]; then
@@ -176,6 +176,7 @@ echo -e "${GREEN}✓ Configuraciones enlazadas con Stow${NC}"
 # ==========================================================
 
 # Crear los directorios necesarios si no existen
+echo -e "${YELLOW}[4/5] ${GREEN}=== Extrayendo fuentes, iconos y cursores ===${NC}"
 echo -e "${YELLOW}Verificando directorios para iconos, cursores y fuentes...${NC}"
 mkdir -p "$USER_FONTS_DIR" "$USER_ICONS_DIR"
 
@@ -213,11 +214,11 @@ fc-cache -fv
 echo -e "${GREEN}✓ Fuentes, iconos y cursores configurados${NC}"
 
 # ==========================================================
-# [5/4] FINISHING RICE
+# [5/5] FINISHING RICE
 # ==========================================================
 
 # Configuración de servicios
-echo -e "${YELLOW}[4/4] ${GREEN}=== Habilitando servicios ===${NC}"
+echo -e "${YELLOW}[5/5] ${GREEN}=== Habilitando servicios ===${NC}"
 if ! systemctl --user enable --now pipewire pipewire-pulse wireplumber; then
     echo -e "${YELLOW}Aviso: No se pudieron habilitar algunos servicios. Verifica tu configuración.${NC}"
 fi
