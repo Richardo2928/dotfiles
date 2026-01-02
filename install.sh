@@ -11,17 +11,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-# Assets path
-USER_FONTS_DIR="$HOME/.local/share/fonts"
-USER_ICONS_DIR="$HOME/.icons"
-USER_THEMES_DIR="$HOME/.themes"
-
 # Assets names
 FONT_NAME=JetBrainsMono
 CURSORS_NAME=oreo-teal-cursors
 ICONS_NAME=Gruved_Green_Icons
 THEMES_NAME=Gruved_Green
 
+# Assets paths
 assets=(
     # Fonts
     "fonts/.local/share/fonts/$FONT_NAME.tar.xz"
@@ -156,10 +152,37 @@ sudo apt install -y "${packages[@]}"
 echo -e "${GREEN}✓ Paquetes instalados${NC}"
 
 # ==========================================================
-# [3/5] INSTALLING RICE
+# [3/5] EXTRACTING FONTS, ICONS, CURSORS AND THEMES
 # ==========================================================
 
-echo -e "${YELLOW}[3/5] ${GREEN}=== Configuración con Stow ===${NC}"
+echo -e "${YELLOW}[3/5] ${GREEN}=== Extrayendo fuentes, iconos, cursores y temas ===${NC}"
+
+# Bucle para extraer
+for asset_path in "${assets[@]}"; do
+    # Verificamos que el archivo realmente exista antes de intentar nada
+    if [ ! -f "$asset_path" ]; then
+        echo -e "{$RED}Advertencia: No se encontró $asset_path, ${YELLOW}saltando...{$NC}"
+        continue
+    fi
+
+    ASSET_DIR=$(dirname "$asset_path")
+
+    echo -e "${YELLOW}Extrayendo $(basename "$asset_path")...${NC}"
+
+    # COMANDO:
+    # -x: extract
+    # -f: file
+    # -C: Change directory (Descomprime DIRECTAMENTE en el destino)
+    tar -xfq "$asset_path" -C "$ASSET_DIR"
+done
+
+echo -e "${GREEN}✓ Assets extraídos (fuentes, iconos, cursores y temas) ${NC}"
+
+# ==========================================================
+# [4/5] INSTALLING RICE
+# ==========================================================
+
+echo -e "${YELLOW}[4/5] ${GREEN}=== Configuración con Stow ===${NC}"
 
 # Verificar si estamos en un repositorio git
 if [ ! -d ".git" ]; then
@@ -176,47 +199,9 @@ fi
 stow -t ~ -- */
 echo -e "${GREEN}✓ Configuraciones enlazadas con Stow${NC}"
 
-# ==========================================================
-# [4/5] EXTRACTING FONTS, ICONS, CURSORS AND THEMES
-# ==========================================================
-
-# Crear los directorios necesarios si no existen
-echo -e "${YELLOW}[4/5] ${GREEN}=== Extrayendo fuentes, iconos, cursores y temas ===${NC}"
-echo -e "${YELLOW}Verificando directorios para iconos, cursores, fuentes y temas...${NC}"
-mkdir -p "$USER_FONTS_DIR" "$USER_ICONS_DIR" "$USER_THEMES_DIR"
-
-# Bucle para extraer
-for asset_path in "${assets[@]}"; do
-    # Verificamos que el archivo realmente exista antes de intentar nada
-    if [ ! -f "$asset_path" ]; then
-        echo -e "{$RED}Advertencia: No se encontró $asset_path, ${YELLOW}saltando...{$NC}"
-        continue
-    fi
-
-    # Decidir el destino basándonos en si la ruta contiene la palabra "fonts" o "icons"
-    # Esto usa "glob patterns" de bash
-    if [[ "$asset_path" == *"fonts"* ]]; then
-        TARGET_DIR="$USER_FONTS_DIR"
-    elif [[ "$asset_path" == *"icons"* || "$asset_path" == *"cursors"* ]]; then
-        TARGET_DIR="$USER_ICONS_DIR"
-    else
-        TARGET_DIR="$HOME" # Fallback
-    fi
-
-    echo -e "${YELLOW}Instalando $(basename "$asset_path") en $TARGET_DIR...${NC}"
-
-    # COMANDO:
-    # -x: extract
-    # -f: file
-    # -C: Change directory (Descomprime DIRECTAMENTE en el destino)
-    tar -xf "$asset_path" -C "$TARGET_DIR"
-done
-
 # Terminando configuración
 echo -e "{$YELLOW}Actualizando caché de fuentes...{$NC}"
 fc-cache -fv
-
-echo -e "${GREEN}✓ Fuentes, iconos y cursores configurados${NC}"
 
 # ==========================================================
 # [5/5] FINISHING RICE
