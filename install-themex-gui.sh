@@ -120,7 +120,7 @@ cat > "$HOME/.local/share/applications/themix-gui.desktop" << EOF
 Name=Themix GUI
 Comment=Graphical application for generating different color variations of themes
 Exec=$HOME/.local/bin/themix-gui
-Icon=$INSTALL_DIR/org.themix_project.Themix.svg
+Icon=$INSTALL_DIR/packaging/com.github.themix_project.Oomox.svg
 Terminal=false
 Type=Application
 Categories=GTK;Settings;DesktopSettings;
