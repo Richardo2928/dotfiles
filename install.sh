@@ -14,11 +14,13 @@ NC='\033[0m'
 # Assets path
 USER_FONTS_DIR="$HOME/.local/share/fonts"
 USER_ICONS_DIR="$HOME/.icons"
+USER_THEMES_DIR="$HOME/.themes"
 
 # Assets names
 FONT_NAME=JetBrainsMono
 CURSORS_NAME=oreo-teal-cursors
-ICONS_NAME=oomox-Greenbox
+ICONS_NAME=Guved_Green_Icons
+THEMES_NAME=Guved_Green
 
 assets=(
     # Fonts
@@ -29,6 +31,9 @@ assets=(
 
     # Icons
     "icons/.icons/$ICONS_NAME.tar.xz"
+
+    # Themes
+    "themes/.themes/$THEMES_NAME.tar.xz"
 )
 
 # ==========================================================
@@ -172,13 +177,13 @@ stow -t ~ -- */
 echo -e "${GREEN}✓ Configuraciones enlazadas con Stow${NC}"
 
 # ==========================================================
-# [4/5] EXTRACTING FONTS, ICONS, CURSORS
+# [4/5] EXTRACTING FONTS, ICONS, CURSORS AND THEMES
 # ==========================================================
 
 # Crear los directorios necesarios si no existen
-echo -e "${YELLOW}[4/5] ${GREEN}=== Extrayendo fuentes, iconos y cursores ===${NC}"
-echo -e "${YELLOW}Verificando directorios para iconos, cursores y fuentes...${NC}"
-mkdir -p "$USER_FONTS_DIR" "$USER_ICONS_DIR"
+echo -e "${YELLOW}[4/5] ${GREEN}=== Extrayendo fuentes, iconos, cursores y temas ===${NC}"
+echo -e "${YELLOW}Verificando directorios para iconos, cursores, fuentes y temas...${NC}"
+mkdir -p "$USER_FONTS_DIR" "$USER_ICONS_DIR" "$USER_THEMES_DIR"
 
 # Bucle para extraer
 for asset_path in "${assets[@]}"; do
