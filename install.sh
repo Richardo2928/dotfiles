@@ -19,8 +19,8 @@ USER_THEMES_DIR="$HOME/.themes"
 # Assets names
 FONT_NAME=JetBrainsMono
 CURSORS_NAME=oreo-teal-cursors
-ICONS_NAME=Guved_Green_Icons
-THEMES_NAME=Guved_Green
+ICONS_NAME=Gruved_Green_Icons
+THEMES_NAME=Gruved_Green
 
 assets=(
     # Fonts
