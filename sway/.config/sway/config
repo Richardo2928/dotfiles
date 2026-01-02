@@ -15,8 +15,8 @@ set $menu fuzzel
 set $browser firefox
 
 # GTK Themes
-set $gtk_theme oomox-Greenbox_Oomox
-set $gtk_icons_theme oomox-Greenbox
+set $gtk_theme Gruved_Green
+set $gtk_icons_theme Gruved_Green_Icons
 
 # Cursor Theme
 set $cursor_theme oreo-teal-cursors
