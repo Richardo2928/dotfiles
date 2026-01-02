@@ -33,7 +33,7 @@ assets=(
     "icons/.icons/$ICONS_NAME.tar.xz"
 
     # Themes
-    "themes/.themes/$THEMES_NAME.tar.xz"
+    "gtk-themes/.themes/$THEMES_NAME.tar.xz"
 )
 
 # ==========================================================
