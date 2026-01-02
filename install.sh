@@ -173,7 +173,7 @@ for asset_path in "${assets[@]}"; do
     # -x: extract
     # -f: file
     # -C: Change directory (Descomprime DIRECTAMENTE en el destino)
-    tar -xfq "$asset_path" -C "$ASSET_DIR"
+    tar -xf "$asset_path" -C "$ASSET_DIR"
 done
 
 echo -e "${GREEN}✓ Assets extraídos (fuentes, iconos, cursores y temas) ${NC}"
