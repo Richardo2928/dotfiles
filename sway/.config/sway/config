@@ -236,37 +236,9 @@ exec swayidle -w \
 # VARIABLES DE ENTORNO
 # ============================================
 
-# # Tema GTK
-# exec_always {
-#     gsettings set org.gnome.desktop.interface gtk-theme 'oomox-Greenbox_Oomox'
-#     gsettings set org.gnome.desktop.interface icon-theme 'oomox-Greenbox'
-#     gsettings set org.gnome.desktop.interface cursor-theme 'oreo-teal-cursors'
-#     gsettings set org.gnome.desktop.interface cursor-size 32
-#     gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font 10'
-# }
-# # Variables para apps que no usan gsettings
-# set $gnome-schema org.gnome.desktop.interface
-
-# exec_always {
-#     gsettings set $gnome-schema gtk-theme 'oomox-Greenbox_Oomox'
-#     gsettings set $gnome-schema icon-theme 'oomox-Greenbox'
-#     gsettings set $gnome-schema cursor-theme 'oreo-teal-cursors'
-# }
-
-# Tema GTK
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
-    gsettings set org.gnome.desktop.interface icon-theme $gtk_icons_theme
-    gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
-    gsettings set org.gnome.desktop.interface cursor-size $cursor_size
-    gsettings set org.gnome.desktop.interface font-name '$font $font_size'
-}
-
-# Variables para apps que no usan gsettings
-set $gnome-schema org.gnome.desktop.interface
-
-exec_always {
-    gsettings set $gnome-schema gtk-theme $gtk_theme
-    gsettings set $gnome-schema icon-theme $gtk_icons_theme
-    gsettings set $gnome-schema cursor-theme $cursor_theme
+    export GTK_THEME=$gtk_theme
+    export ICON_THEME=$gtk_icons_theme
+    export XCURSOR_THEME=$cursor_theme
+    export XCURSOR_SIZE=$cursor_size
 }
