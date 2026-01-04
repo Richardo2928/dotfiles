@@ -24,9 +24,7 @@ font pango:$font 12
 set $gtk_theme Gruved_Green
 set $icons_theme Gruved_Green_Icons
 
-exec_always {
-    export GTK_THEME=$gtk_theme
-    export ICON_THEME=$icons_theme
-    export XCURSOR_THEME=$cursor_theme
-    export XCURSOR_SIZE=$cursor_size
-}
+exec_always export GTK_THEME=$gtk_theme
+exec_always export ICON_THEME=$icons_theme
+exec_always export XCURSOR_THEME=$cursor_theme
+exec_always export XCURSOR_SIZE=$cursor_size
