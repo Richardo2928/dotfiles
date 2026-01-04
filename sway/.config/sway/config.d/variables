@@ -21,8 +21,8 @@ set $font JetBrainsMono Nerd Font
 font pango:$font 12
 
 # GTK Themes
-set $gtk_theme Gruved-Green
-set $icons_theme Gruved-Green-Icons
+set $gtk_theme Gruved_Green
+set $icons_theme Gruved_Green_Icons
 
 exec_always {
     export GTK_THEME=$gtk_theme
