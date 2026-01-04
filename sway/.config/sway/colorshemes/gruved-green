@@ -33,9 +33,9 @@ set $blue #83a598            # Azul Gruvbox
 
 # Configuración de ventanas
 # class                 border        background    text          indicator     child_border
-client.focused          $green_medium $green_medium $fg_dark      $green_mint   $green_medium
+client.focused          $green_medium $bg_primary   $fg_primary   $green_mint   $green_medium
 client.focused_inactive $bg_elevated  $bg_elevated  $fg_primary   $bg_primary   $bg_elevated
-# client.focused_tab_title $green_deep  $bg_primary   $green_mint   $bg_primary   $green_deep
+client.focused_tab_title $green_deep  $bg_primary   $green_mint   $bg_primary   $green_deep
 client.unfocused        $bg_primary   $bg_primary   $bg_secondary $bg_primary   $bg_primary
 client.urgent           $red          $red          $fg_primary   $red          $red
 client.placeholder      $bg_primary   $bg_primary   $bg_secondary $bg_primary   $bg_primary
