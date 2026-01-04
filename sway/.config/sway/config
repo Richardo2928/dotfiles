@@ -7,7 +7,7 @@ include ./colorschemes/gruved-green
 # include ./config.d/outputs
 # include ./config.d/inputs
 
-include .config.d/keybindings
+include ./config.d/keybindings
 
 include ./config.d/autostart
 
