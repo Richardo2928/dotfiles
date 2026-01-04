@@ -1,0 +1,15 @@
+# ============================================
+# AUTOSTART
+# ============================================
+
+# Barra de estado
+exec waybar
+
+# Notificaciones
+exec swaync
+
+# Network Manager
+exec nm-applet --indicator
+
+# Sway Wallpaper
+exec swaybg -i ~/Pictures/Wallpaper/debian_wallpaper.jpg -m fill

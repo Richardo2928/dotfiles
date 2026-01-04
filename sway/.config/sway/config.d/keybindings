@@ -1,0 +1,120 @@
+# ============================================
+# BASIC KEYBINDINGS
+# ============================================
+
+# Terminal
+bindsym $mod+Return exec $term
+
+# Launcher
+bindsym $mod+d exec $menu
+
+# Navegador
+bindsym $mod+b exec $browser
+
+# Abrir/cerrar centro de notificaciones
+bindsym $mod+n exec swaync-client -t -sw
+
+# Cerrar última notificación
+bindsym $mod+Shift+n exec swaync-client -C
+
+# Cerrar ventana
+bindsym $mod+Shift+q kill
+
+# Recargar configuración
+bindsym $mod+Shift+r reload
+
+# Salir de Sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Salir de Sway?' -B 'Sí' 'swaymsg exit'
+
+# ============================================
+# BROWSE WINDOWS
+# ============================================
+
+# Mover foco (vim keys)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover ventanas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# ============================================
+# LAYOUTS
+# ============================================
+
+# Split horizontal/vertical
+bindsym $mod+g split h
+bindsym $mod+v split v
+
+# Cambiar layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Floating toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# ============================================
+# WORKSPACES
+# ============================================
+
+# Definir workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# Cambiar a workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# Mover ventana a workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+# ============================================
+# RESIZE
+# ============================================
+
+mode "resize" {
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ============================================
+# MULTIMEDIA
+# ============================================
+
+# Volumen
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Brillo
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Screenshots
+bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png

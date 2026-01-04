@@ -1,0 +1,32 @@
+# ============================================
+# VARIABLES
+# ============================================
+
+# Mod Key (Mod4 = Super/Windows)
+set $mod Mod4
+
+# Apps
+set $term foot
+set $menu fuzzel
+set $browser firefox
+set $file_manager thunar
+
+# Cursor Theme
+set $cursor_theme oreo-teal-cursors
+set $cursor_size 32
+seat * xcursor_theme $cursor_theme $cursor_size
+
+# Fonts
+set $font JetBrainsMono Nerd Font
+font pango:$font 12
+
+# GTK Themes
+set $gtk_theme Gruved-Green
+set $icons_theme Gruved-Green-Icons
+
+exec_always {
+    export GTK_THEME=$gtk_theme
+    export ICON_THEME=$icons_theme
+    export XCURSOR_THEME=$cursor_theme
+    export XCURSOR_SIZE=$cursor_size
+}
