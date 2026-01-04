@@ -3,7 +3,7 @@
 # ============================================
 
 include ./config.d/variables
-include ./colorschemes/gruved-green
+include ./colorshemes/gruved-green
 # include ./config.d/outputs
 # include ./config.d/inputs
 
