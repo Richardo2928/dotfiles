@@ -45,16 +45,27 @@ window#waybar {
     50% { opacity: 0.7; }
 }
 
-/* ========== MÓDULOS COMUNES ========== */
-/* Base para módulos */
-.module-base {
+/* ========== ESTILO BASE PARA MÓDULOS ========== */
+.modules-base {
     padding: 0 12px;
     margin: 0 2px;
     background: #504945; /* $bg_elevated */
 }
 
+#clock,
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#network,
+#custom-swaync {
+    padding: 0 12px;
+    margin: 0 2px;
+    background: #504945; /* $bg_elevated */
+}
+
+/* ========== CLOCK ========== */
 #clock {
-    composes: module-base;
     color: #A4ECA8; /* $green_mint */
     font-weight: bold;
     margin: 0 5px;
@@ -63,18 +74,15 @@ window#waybar {
 
 /* ========== SISTEMA ========== */
 #cpu {
-    composes: module-base;
     color: #49CA94; /* $green_medium */
 }
 
 #memory {
-    composes: module-base;
     color: #0FA17A; /* $green_deep */
 }
 
 /* ========== HARDWARE ========== */
 #battery {
-    composes: module-base;
     color: #A4ECA8; /* $green_mint */
 }
 
@@ -94,7 +102,6 @@ window#waybar {
 
 /* ========== AUDIO ========== */
 #pulseaudio {
-    composes: module-base;
     color: #0FA17A; /* $green_deep */
 }
 
@@ -105,7 +112,6 @@ window#waybar {
 
 /* ========== RED ========== */
 #network {
-    composes: module-base;
     color: #49CA94; /* $green_medium */
 }
 
@@ -116,7 +122,6 @@ window#waybar {
 
 /* ========== NOTIFICACIONES ========== */
 #custom-swaync {
-    composes: module-base;
     color: #D8F8B0; /* $green_light */
 }
 
@@ -166,6 +171,26 @@ window#waybar {
     font-weight: bold;
 }
 
+/* ========== CUSTOM MEDIA (OPCIONAL) ========== */
+#custom-media {
+    color: #49CA94;
+    background: #504945;
+    padding: 0 12px;
+    margin: 0 2px;
+}
+
+/* ========== IDLE INHIBITOR ========== */
+#idle_inhibitor {
+    color: #89816d;
+    background: #504945;
+    padding: 0 12px;
+    margin: 0 2px;
+}
+
+#idle_inhibitor.activated {
+    color: #A4ECA8;
+}
+
 /* Tooltips */
 tooltip {
     background: #282828; /* $bg_primary */
@@ -177,20 +202,12 @@ tooltip label {
     color: #A4ECA8; /* $green_mint */
 }
 
-
-/* ========== TESTING ========== */
-/* Degradado sutil en la barra */
-window#waybar {
-    background: linear-gradient(
-        90deg,
-        #282828 0%,
-        #282828 50%,
-        #282828 100%
-    );
+/* Separadores opcionales */
+#cpu, #memory, #battery, #pulseaudio, #network {
+    border-right: 1px solid #3a524c;
 }
 
-/* Separadores entre módulos con color gradiente */
-#cpu, #memory, #battery, #pulseaudio, #network {
+#clock {
     border-right: 1px solid #0FA17A;
     border-left: 1px solid #49CA94;
 }
