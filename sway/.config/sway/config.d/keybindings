@@ -93,8 +93,8 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 
 mode "resize" {
     bindsym h resize shrink width 10px
-    bindsym j resize grow height 10px
-    bindsym k resize shrink height 10px
+    bindsym j resize shrink height 10px
+    bindsym k resize grow height 10px
     bindsym l resize grow width 10px
     
     bindsym Return mode "default"
