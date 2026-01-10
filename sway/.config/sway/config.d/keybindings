@@ -62,6 +62,9 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
+# Toggle titlebar
+bindsym $mod+Shift+b exec swaymsg border toggle
+
 # ============================================
 # WORKSPACES
 # ============================================
