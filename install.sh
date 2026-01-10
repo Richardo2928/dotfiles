@@ -161,7 +161,7 @@ echo -e "${YELLOW}[3/5] ${GREEN}=== Extrayendo fuentes, iconos, cursores y temas
 for asset_path in "${assets[@]}"; do
     # Verificamos que el archivo realmente exista antes de intentar nada
     if [ ! -f "$asset_path" ]; then
-        echo -e "{$RED}Advertencia: No se encontró $asset_path, ${YELLOW}saltando...{$NC}"
+        echo -e "${RED}Advertencia: No se encontró $asset_path, ${YELLOW}saltando...${NC}"
         continue
     fi
 
