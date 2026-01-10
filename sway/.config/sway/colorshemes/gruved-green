@@ -32,14 +32,14 @@ set $blue #83a598
 # ============================================
 
 # Configuración de ventanas
-# class                 border        background    text          indicator     child_border
-client.focused          $green_medium $bg_primary   $fg_primary   $green_mint   $green_medium
-client.focused_inactive $bg_lighter  $bg_elevated   $fg_primary   $bg_primary   $bg_lighter
-client.focused_tab_title $green_deep  $bg_primary   $green_mint
-client.unfocused        $bg_primary   $bg_primary   $bg_secondary $bg_primary   $bg_primary
-client.urgent           $red          $red          $fg_primary   $red          $red
-client.placeholder      $bg_primary   $bg_primary   $bg_secondary $bg_primary   $bg_primary
-client.background       $bg_primary
+# class                     titlebar border     titlebar background     titlebar text   child indicator     border
+client.focused              $green_medium       $bg_primary             $fg_primary     $yellow             $green_medium
+client.focused_inactive     $bg_lighter         $bg_elevated            $bg_secondary   $orange             $bg_lighter
+client.focused_tab_title    $green_medium       $bg_primary             $green_mint
+client.unfocused            $blue               $bg_primary             $bg_secondary   $bg_secondary       $blue
+client.urgent               $red                $black                  $fg_dark        $orange             $red
+# client.placeholder         $green_medium       $bg_primary             $fg_primary
+# client.background          $bg_primary
 
 # Gaps (espacios entre ventanas) - minimalistas
 gaps inner 8
