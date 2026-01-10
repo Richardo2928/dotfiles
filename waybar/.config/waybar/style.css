@@ -74,16 +74,16 @@ window#waybar {
 
 /* ========== SISTEMA ========== */
 #cpu {
-    color: #49CA94; /* $green_medium */
+    color: #A4ECA8;
 }
 
 #memory {
-    color: #0FA17A; /* $green_deep */
+    color: #A4ECA8;
 }
 
 /* ========== HARDWARE ========== */
 #battery {
-    color: #A4ECA8; /* $green_mint */
+    color: #A4ECA8;
 }
 
 #battery.warning {
