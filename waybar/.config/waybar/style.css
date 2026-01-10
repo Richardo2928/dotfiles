@@ -102,7 +102,7 @@ window#waybar {
 
 /* ========== AUDIO ========== */
 #pulseaudio {
-    color: #0FA17A; /* $green_deep */
+    color: #A4ECA8; /* $green_deep */
 }
 
 #pulseaudio.muted {
@@ -112,7 +112,7 @@ window#waybar {
 
 /* ========== RED ========== */
 #network {
-    color: #49CA94; /* $green_medium */
+    color: #A4ECA8; /* $green_medium */
 }
 
 #network.disconnected {
