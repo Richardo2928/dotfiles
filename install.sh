@@ -165,7 +165,7 @@ for asset_path in "${assets[@]}"; do
         continue
     fi
 
-    ASSET_DIR=$(dirname "$asset_path")
+    ASSET_TARGET="$HOME/$(dirname "$asset_path" | sed 's|^[^/]*/||')"
 
     echo -e "${YELLOW}Extrayendo $(basename "$asset_path")...${NC}"
 
