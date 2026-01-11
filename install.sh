@@ -200,7 +200,7 @@ stow -t ~ -- */
 echo -e "${GREEN}✓ Configuraciones enlazadas con Stow${NC}"
 
 # Terminando configuración
-echo -e "{$YELLOW}Actualizando caché de fuentes...{$NC}"
+echo -e "${YELLOW}Actualizando caché de fuentes...${NC}"
 fc-cache -fv
 
 # ==========================================================
