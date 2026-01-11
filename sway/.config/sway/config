@@ -3,7 +3,8 @@
 # ============================================
 
 include ./config.d/variables
-include ./colorshemes/gruved-green
+include ./config.d/appearance
+include ./colorschemes/gruved-green
 # include ./config.d/outputs TODO
 # include ./config.d/inputs TODO
 include ./config.d/autostart

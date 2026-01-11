@@ -1,0 +1,12 @@
+# ============================================
+# APPEARANCE
+# ============================================
+
+# Gaps (spaces between windows) - minimalist
+gaps inner 8
+gaps outer 4
+
+# Thin borders - minimalist
+## border settings affect window decorations (titlebars, borders)
+default_border pixel 2
+default_floating_border pixel 2

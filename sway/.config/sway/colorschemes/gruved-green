@@ -40,11 +40,3 @@ client.unfocused            $blue               $bg_primary             $bg_seco
 client.urgent               $red                $black                  $fg_dark        $orange             $red
 # client.placeholder         $green_medium       $bg_primary             $fg_primary
 # client.background          $bg_primary
-
-# Gaps (espacios entre ventanas) - minimalistas
-gaps inner 8
-gaps outer 4
-
-# Bordes delgados
-default_border pixel 2
-default_floating_border pixel 2
