@@ -1,0 +1,270 @@
+"$schema": "https://github.com/Richardo2928/dotfiles/blob/main/oh-my-posh/.config/poshthemes/kkck.omp.json"
+final_space = true
+version = 4
+console_title_template = "[{{ if .Root }}root @ {{ end }}{{ .Shell }} -- in -> {{ .Folder }}]"
+
+[secondary_prompt]
+template = "\u2570\u2500\uf105 "
+foreground = "p:green-mint"
+background = "transparent"
+
+[transient_prompt]
+template = "\ue285 "
+foreground = "p:green-mint"
+background = "transparent"
+
+# ============================================
+# Palette
+[palette]
+bg = "#151b1b"
+fg = "#fbf1c7"
+red = "#cc241d"
+red-lighter = "#fb4934"
+green = "#98971a"
+green-lighter = "#b8bb26"
+yellow = "#d79921"
+yellow-lighter = "#fabd2f"
+blue = "#458588"
+blue-lighter = "#83a598"
+purple = "#b16286"
+purple-lighter = "#d3869b"
+aqua = "#689d6a"
+aqua-lighter = "#8ec07c"
+orange = "#d65d0e"
+orange-lighter = "#fe8019"
+green-deep = "#0FA17A"
+green-medium = "#49CA94"
+green-mint = "#A4ECA8"
+green-light = "#D8F8B0"
+# ============================================
+# ============================================
+# Block 1: Right aligned decorative top
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+[[blocks.segments]]
+properties = { always_enabled = true }
+template = " /\\_____/\\ "
+foreground = "p:green-mint"
+type = "text"
+style = "plain"
+# ============================================
+# Block 2: Right aligned exit code
+[[blocks]]
+type = "prompt"
+alignment = "right"
+newline = true
+
+[[blocks.segments]]
+properties = { always_enabled = true }
+template = "{{ if gt .Code 0 }}(-[<p:green-mint>0</>].[<p:green-mint>0</>]-){{ else }}(-[<p:red-lighter> </>].[<p:red-lighter> </>]-){{ end }}"
+foreground = "p:green-mint"
+type = "text"
+style = "plain"
+# ============================================
+# Block 3: Left aligned main prompt segments
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+properties = { alpine = "\uf300", arch = "\uf303", centos = "\uf304", debian = "\uf306", elementary = "\uf309", fedora = "\uf30a", gentoo = "\uf30d", linux = "\ue712", macos = "\ue711", manjaro = "\uf312", mint = "\uf30f", opensuse = "\uf314", raspbian = "\uf315", ubuntu = "\uf31c", windows = "\ue70f" }
+leading_diamond = "\ue0b2"
+template = " {{ if .WSL }}\ue712 on {{ end }}{{ .Icon }} "
+foreground = "p:green-mint"
+background = "p:bg"
+type = "os"
+style = "diamond"
+
+[[blocks.segments]]
+leading_diamond = "\ue0b2"
+template = " <#6feb8e>\ueb99</> {{ .UserName }} <#6feb8e>::</> <#6feb8e>\uf108</> {{ .HostName }} "
+foreground = "#7eb8da"
+background = "#2B2D42"
+type = "session"
+style = "diamond"
+
+[[blocks.segments]]
+template = " \uf489 {{ .Name }} "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "shell"
+style = "powerline"
+
+[[blocks.segments]]
+template = " \uf09c admin "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "root"
+style = "powerline"
+
+[[blocks.segments]]
+template = " \ue61e \ue61d cmake {{ .Full }} "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "cmake"
+style = "powerline"
+
+[[blocks.segments]]
+properties = { display_mode = "context" }
+template = " \ue73c {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "python"
+style = "powerline"
+
+[[blocks.segments]]
+template = " \u202d\ue626 {{ .Full }} "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "go"
+style = "powerline"
+
+[[blocks.segments]]
+template = " \ue7a8 {{ .Full }} "
+foreground = "#011627"
+powerline_symbol = "\ue0b0"
+background = "#6feb8e"
+type = "rust"
+style = "powerline"
+
+[[blocks.segments]]
+properties = { branch_icon = "\ue725 ", fetch_stash_count = true, fetch_status = true, fetch_upstream_icon = true, fetch_worktree_count = true }
+template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
+foreground = "#6feb8e"
+powerline_symbol = "\ue0b0"
+background = "#151b1b"
+type = "git"
+style = "powerline"
+background_templates = [
+  "{{ if or (.Working.Changed) (.Staging.Changed) }}#4a4a4a{{ end }}",
+  "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#4a4a4a{{ end }}",
+  "{{ if gt .Ahead 0 }}#5a5a5a{{ end }}",
+  "{{ if gt .Behind 0 }}#5a5a5a{{ end }}"
+]
+# ============================================
+# Block 4: Right aligned battery
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+[[blocks.segments]]
+foreground = "#6feb8e"
+foreground_templates = [
+  "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
+  "{{if eq \"Discharging\" .State.String}}#ff5722{{end}}",
+  "{{if eq \"Full\" .State.String}}#4caf50{{end}}"
+]
+properties = { charged_icon = "<#ffffff>\ue22f</> ", charging_icon = "\ueb2d ", discharging_icon = "<#ffff00>\uf244</> " }
+style = "plain"
+template = "--[{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295]--"
+type = "battery"
+# ============================================
+# Block 5: Left aligned date and time
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+template = "╭─"
+foreground = "#D6DEEB"
+type = "text"
+style = "plain"
+
+[[blocks.segments]]
+properties = { time_format = "<#D6DEEB>[ \ue641 15:04:05 ]</> <#6feb8e>[ </> \uf073 2 Jan, Monday <#6feb8e>]</> " }
+template = "{{ .CurrentDate | date .Format }}"
+foreground = "#6feb8e"
+type = "time"
+style = "plain"
+# ============================================
+# Block 6: Right aligned system info (RAM, status, execution time)
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+[[blocks.segments]]
+properties = { always_enabled = true }
+leading_diamond = "\ue0b6"
+template = "\ue266 "
+foreground = "#3a3a3a"
+background = "#6abfc6"
+type = "text"
+style = "diamond"
+
+[[blocks.segments]]
+properties = { style = "roundrock", threshold = 0 }
+trailing_diamond = "\ue0b4"
+template = "RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB"
+foreground = "#B6D6F2"
+background = "#1b1e34"
+type = "sysinfo"
+style = "diamond"
+
+[[blocks.segments]]
+properties = { always_enabled = true }
+leading_diamond = "\ue0b6"
+template = " {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }} "
+foreground = "#6feb8e"
+background = "#3a3a3a"
+type = "status"
+style = "diamond"
+foreground_templates = ["{{ if gt .Code 0 }}#D6DEEB{{ end }}"]
+background_templates = ["{{ if gt .Code 0 }}#E44141{{ end }}"]
+
+[[blocks.segments]]
+properties = { style = "roundrock", threshold = 0 }
+trailing_diamond = "\ue0b4"
+template = " \uf252 {{ .FormattedMs }} "
+foreground = "#B6D6F2"
+background = "#575656"
+type = "executiontime"
+style = "diamond"
+# ============================================
+# Block 7: Left aligned path
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+template = "├─"
+foreground = "#D6DEEB"
+type = "text"
+style = "plain"
+
+[[blocks.segments]]
+properties = { folder_icon = " \uf07c ", folder_separator_icon = " \uf061 ", home_icon = "\ueb06 ", max_depth = 3, style = "agnoster_short" }
+leading_diamond = "[<#6feb8e> \uf07b </><#B6D6F2> in </"
+template = " {{ .Path }} <#D6DEEB>]</>"
+foreground = "#B6D6F2"
+type = "path"
+style = "diamond"
+# ============================================
+# Block 8: Left aligned final prompt
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+template = "╰─"
+foreground = "#D6DEEB"
+type = "text"
+style = "plain"
+
+[[blocks.segments]]
+properties = { always_enabled = true }
+template = "\u276f "
+foreground = "#6feb8e"
+type = "status"
+style = "plain"
+# ============================================
