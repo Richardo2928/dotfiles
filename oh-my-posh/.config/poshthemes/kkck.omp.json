@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "$schema": "https://github.com/Richardo2928/dotfiles/blob/main/oh-my-posh/.config/poshthemes/kkck.omp.json",
   "secondary_prompt": {
     "template": "\u2570\u2500\uf105 ",
     "foreground": "#6feb8e",
