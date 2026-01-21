@@ -53,7 +53,7 @@ fi
 # RELOAD SWAY IF RUNNING ===================================
 # Solo si sway está en ejecución
 if pgrep -x sway > /dev/null; then
-    echo -e "${GREEN}🔄 Recargando Sway...${NC}"
+    echo -e "${GREEN}=== Recargando Sway...${NC}"
     # Recargar la configuración de Sway
     if ! swaymsg reload; then
         echo -e "${RED}Error: fallo al recargar Sway. Revisa tu configuración de Sway.${NC}" >&2
